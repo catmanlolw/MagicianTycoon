@@ -1,13 +1,13 @@
 local module = {}
 
 --// Variables \\--
-local Plots = game.Workspace:WaitForChild("Plots")
-local RE = game:GetService("ReplicatedStorage")
-local Modules = RE:WaitForChild("Modules")
-local HatDroppers = RE:WaitForChild("HatDroppers")
+local Plots = game.Workspace:WaitForChild("Plots") -- Grabs folder where all the plots are placed
+local RE = game:GetService("ReplicatedStorage") -- Defines Replicated Storage Service
+local Modules = RE:WaitForChild("Modules") -- Grabs ReplicatedStorage's Modules Folder
+local HatDroppers = RE:WaitForChild("HatDroppers") -- Grabs the folder where all Hat Droppers are stored
 local GameFunctions -- 	left blank to require in functions below
-local Events = RE:WaitForChild("RemoteEvents")
-local IsRunning = false
+local Events = RE:WaitForChild("RemoteEvents") -- Grabs Remote event folder
+local IsRunning = false -- Variable for Hat selling machine
 
 --Weirdly named datastores
 local DS = game:GetService("DataStoreService"):GetDataStore("meowmeowmeow")

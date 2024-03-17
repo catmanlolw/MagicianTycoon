@@ -1,27 +1,27 @@
 local module = {}
 
 --// Variables \\ --
-local Plots = game.Workspace:WaitForChild("Plots")
-local RE = game:GetService("ReplicatedStorage")
-local Modules = RE:WaitForChild("Modules")
-local HatDroppers = RE:WaitForChild("HatDroppers")
+local Plots = game.Workspace:WaitForChild("Plots") -- Grabs all plots folder
+local RE = game:GetService("ReplicatedStorage") -- Defines Replicated Storage Service 
+local Modules = RE:WaitForChild("Modules") -- Grabs Modules folder from Replicated Storage
+local HatDroppers = RE:WaitForChild("HatDroppers") -- GRabs HatDroppers folder from ReplicatedStorage
 
 --// Variable Settings for Hat placement \\--
-module.PerLayer = 8
-module.XPosition = 0
-module.YPosition = 0
+module.PerLayer = 8 -- Used to tell the script how many hats per layer/floor 
+module.XPosition = 0 -- Tracks XPosition for hat placing purposes
+module.YPosition = 0 -- Tracks YPosition for hat placing purposes
 
-module.XPositionIncrement = 10
-module.YPositionIncrement = 10
+module.XPositionIncrement = 10 --Space between hats when placed
+module.YPositionIncrement = 10 -- Space between layer/floors
 
-local CurrentYPosition = 0
+local CurrentYPosition = 0 --Changes when new layer/floor is added
+ 
+module.MaxLayers = 10 -- Cap placed so player does not create infinite floors
 
-module.MaxLayers = 10
+local FloorPosition = 18 -- Roof Position that increases each time a layer is created (idk why its named floor but okay 2022 me)
 
-local FloorPosition = 18
-
-local NeedsLayer = false
-local Layer 
+local NeedsLayer = false -- Lets the script know if the player needs to merge 
+local Layer --Keeps track of what layer the player is on
 
 --[[This is a table that stores the tables we have.
 	The "Amount" key inside the dictionary indicates how many hats are needed to Merge
@@ -68,15 +68,15 @@ module.MergeInfo = {
 --[[This table holds the prices of the Slot Machine.
 	These are used to buy more hats]]--
 module.SlotMachinePrices = {
-	CommonBtn = 
+	CommonBtn = --gives 1-6 hats when bought 
 		{
 			Price = 600
 		};
-	RareBtn = 
+	RareBtn = -- gives 3-9 hats when bought
 		{
 			Price = 1800
 		};
-	EpicBtn = 
+	EpicBtn = --gives 6-25 hats when bought
 		{
 			Price = 3800
 		}
